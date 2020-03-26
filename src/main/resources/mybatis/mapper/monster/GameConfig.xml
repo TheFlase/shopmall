@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wgc.shopmall.dao.monster.GameConfigDao">
+
+    <resultMap id="GameConfigResultMap" type="com.wgc.shopmall.model.monster.GameConfig">
+        <id property="id" column="id"/>
+        <result property="configName" column="config_name"/>
+        <result property="configValue" column="config_value"/>
+    </resultMap>
+
+    <select id="listAllGameConfig"  resultMap="GameConfigResultMap">
+        select * from t_game_config
+    </select>
+
+</mapper>
