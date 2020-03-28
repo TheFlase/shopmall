@@ -1,5 +1,6 @@
 package com.wgc.shopmall.datasource;
 
+import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -16,16 +17,17 @@ import javax.sql.DataSource;
 
 /**
  * @Author wgc
- * @Description //TODO
+ * @Description
  * @Date 3/26/2020
  **/
 @Configuration
 @MapperScan(basePackages = {"com.wgc.shopmall.dao.monster"},sqlSessionTemplateRef = "monsterSqlSessionTemplate")
 public class MonsterDatasouceConfig {
     @Bean(name = "monsterDataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.monster")
+    @ConfigurationProperties(prefix = "spring.datasource.druid.monster")
     public DataSource monsterDataSource() {
-        return DataSourceBuilder.create().build();
+        return DruidDataSourceBuilder.create().build();
+//        return DataSourceBuilder.create().build();
     }
 
     @Bean(name = "monsterSqlSessionFactory")

@@ -1,5 +1,6 @@
 package com.wgc.shopmall.datasource;
 
+import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -23,9 +24,10 @@ import javax.sql.DataSource;
 @MapperScan(basePackages = {"com.wgc.shopmall.dao"},sqlSessionTemplateRef = "myTestSqlSessionTemplate")
 public class MytestDatasouceConfig {
     @Bean(name = "myTestDataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.mytest")
+    @ConfigurationProperties(prefix = "spring.datasource.druid.mytest")
     public DataSource mytestDataSource() {
-        return DataSourceBuilder.create().build();
+        return DruidDataSourceBuilder.create().build();
+//        return DataSourceBuilder.create().build();
     }
 
     @Bean(name = "myTestSqlSessionFactory")

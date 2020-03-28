@@ -10,7 +10,6 @@ import java.util.List;
  * @Description //TODO
  * @Date 3/26/2020
  **/
-@Repository
 public interface GameConfigDao {
     List<GameConfig> listAllGameConfig();
 }
